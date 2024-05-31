@@ -1,0 +1,90 @@
+<!-- Joel Macias 21145505  -->
+<!-- Booking HTML document form  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <script type="text/javascript" src="booking.js"></script>
+</head>
+
+<body>
+    <h1>Booking</h1>
+    <form id="bookingForm">
+
+        <!-- customer name  -->
+        <label for="cname">Customer Name</label>
+        <input type="text" name="cname" required>
+        <span id="cname-error"></span><br><br>
+
+        <!-- phone number  -->
+        <label for="phone">Phone Number</label>
+        <input type="text" name="phone" pattern="[0-9]{10,12}" required>
+        <span id="phone-error"></span> <br><br>
+
+        <!-- street number  -->
+        <label for="snumber">Street Number:</label>
+        <input type="text" name="snumber" required>
+        <span id="snumber-error"></span><br><br>
+
+        <!-- street name  -->
+        <label for="stname">Street Name:</label>
+        <input type="text" name="stname" required>
+        <span id="stname-error"></span><br><br>
+
+        <!-- suburb  -->
+        <label for="sbname">Suburb:</label>
+        <input type="text" name="sbname"><br><br>
+
+        <!-- destination suburb  -->
+        <label for="dsbname"> Destination Suburb:</label>
+        <input type="text" name="dsbname"><br><br>
+
+        <!-- date  -->
+        <label for="date">Pick-up Date:</label>
+        <input type="date" name="date" id="date" required>
+        <span id="date-error"></span><br><br>
+
+        <!-- time  -->
+        <label for="time">Pick-up Time:</label>
+        <input type="time" name="time" id="time" required>
+        <span id="time-error"></span><br><br>
+
+        <!-- submit form to take to js  -->
+        <input type="button" value="Submit" onClick="submitForm()">
+
+    </form>
+
+    <!-- reference div to display the reference number  -->
+    <div id="reference">
+        <p></p>
+    </div>
+
+    <script>
+
+        //set default date in the form
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+
+        document.getElementById("date").value = today;
+        document.getElementById("date").setAttribute("min", today);
+
+
+        // set default time in the form
+        var time = new Date();
+        var hh = String(time.getHours()).padStart(2, '0');
+        var min = String(time.getMinutes()).padStart(2, '0');
+        time = hh + ':' + min;
+        document.getElementById("time").value = time;
+        document.getElementById("time").setAttribute("min", time);
+    </script>
+
+</body>
+
+</html>

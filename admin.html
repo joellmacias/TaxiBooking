@@ -1,0 +1,28 @@
+<!-- Joel Macias 21145505-->
+<!-- Admin search html-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin </title>
+    <script type="text/javascript" src="admin.js"></script>
+</head>
+
+<body>
+
+    <h1>Admin</h1>
+    <!-- admin search form-->
+    <form id="adminForm">
+        <input type="text" name="bsearch">
+        <input type="button" name="sbutton" value="Search" onClick="getData('admin.php','content', bsearch.value)"
+            value="Fetch from server">
+    </form>
+    <div class="confirm" id="confirm"></div>
+    <div class="content" id="content"></div>
+</body>
+
+
+</html>

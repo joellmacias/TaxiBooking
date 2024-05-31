@@ -1,0 +1,24 @@
+CREATE TABLE booking_requests (
+    booking_number VARCHAR(9) PRIMARY KEY,
+    customer_name VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(12) NOT NULL,
+    street_number VARCHAR(50) NOT NULL,
+    street_name VARCHAR(100) NOT NULL,
+    suburb VARCHAR(100) NOT NULL,
+    destination_suburb VARCHAR(100),
+    pick_up_date DATE NOT NULL,
+    pick_up_time TIME NOT NULL,
+    assignment_status ENUM('Unassigned', 'Assigned') DEFAULT 'Unassigned'
+);
+
+UPDATE booking_requests SET assignment_status = 'Assigned' WHERE booking_number = '$booking_number';
+
+SELECT * FROM booking_requests  WHERE assignment_status = 'Unassigned' AND CONCAT(pick_up_date, ' ', pick_up_time) BETWEEN NOW() AND NOW() + INTERVAL 2 HOUR;
+
+SELECT * FROM booking_requests WHERE booking_number = '$bsearch';
+
+SELECT * FROM booking_requests;
+
+INSERT INTO booking_requests (booking_number, customer_name, phone_number, street_number, street_name, suburb, destination_suburb, pick_up_date, pick_up_time, assignment_status) VALUES ('$booking_number','$cname', '$phone', '$snumber', '$stname','$sbname', '$dsbname','$date', '$time', '$status');
+
+
